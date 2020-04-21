@@ -32,12 +32,12 @@ public class DiscoverFragment extends Fragment {
         TableLayout ll = (TableLayout)root.findViewById(R.id.layout);
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
-        Button[][] buttonArray = new Button[4][4];
+        Button[][] buttonArray = new Button[4][3];
         TableLayout table = new TableLayout(this.getActivity());
         int count = 0;
         for (int row = 0; row < 4; row++) {
             TableRow currentRow = new TableRow(this.getActivity());
-            for (int button = 0; button < 4; button++) {
+            for (int button = 0; button < 3; button++) {
                 Button currentButton = new Button(this.getActivity());
                 currentButton.setText("Recipe " + ++count);
                 currentButton.setHeight(300);
