@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -38,13 +39,11 @@ public class DiscoverFragment extends Fragment {
                 ViewModelProviders.of(this).get(DiscoverViewModel.class);
         View root = inflater.inflate(R.layout.fragment_discover, container, false);
         TableLayout ll = (TableLayout)root.findViewById(R.id.layout);
-        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
         final Recipe r = new Recipe("Scrambled Eggs", new ArrayList<String>(Arrays.asList("Eggs", "Butter")), R.drawable.test1, "Stir the eggs");
         recipeArray.add(r);
         recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
+
 
         TableLayout table = new TableLayout(this.getActivity());
         int totalButtons = recipeArray.size();
@@ -59,6 +58,10 @@ public class DiscoverFragment extends Fragment {
             totalButtons -= 3;
             for (int button = 0; button < buttonsPerRow; button++) {
                 Button currentButton = new Button(this.getActivity());
+                TableRow.LayoutParams p = new TableRow.LayoutParams();
+                p.rightMargin = 20;
+                p.bottomMargin = 20;
+                currentButton.setLayoutParams(p);
                 currentButton.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -87,6 +90,8 @@ public class DiscoverFragment extends Fragment {
             }
             table.addView(currentRow);
         }
+        TableRow emptyRow = new TableRow(this.getActivity());
+        table.addView(emptyRow);
         ll.addView(table);
 
         return root;

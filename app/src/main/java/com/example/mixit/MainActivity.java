@@ -23,9 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> myList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,54 +39,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        listView = findViewById(R.id.listView);
 
-        myList = new ArrayList<String>();
-        myList.add("Eggs");
-        myList.add("Chicken");
-        myList.add("Beef");
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myList);
-        listView.setAdapter(adapter);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search, menu);
-
-        MenuItem searchViewItem = menu.findItem(R.id.search_bar);
-        SearchView searchView = (SearchView) searchViewItem.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
-        {
-           public boolean onQueryTextSubmit(String query)
-           {
-               if(myList.contains(query))
-               {
-                   adapter.getFilter().filter(query);
-               }
-               else
-               {
-                   Toast.makeText(MainActivity.this, "Not found", Toast.LENGTH_LONG).show();
-               }
-               return false;
-           }
-           public boolean onQueryTextChange(String newText)
-           {
-               if(newText == null || newText.equals(""))
-               {
-                   listView.setVisibility(View.GONE);
-               }
-               else
-               {
-                   listView.setVisibility(View.VISIBLE);
-               }
-               adapter.getFilter().filter(newText);
-               return false;
-           }
-        });
-        return super.onCreateOptionsMenu(menu);
     }
 
 }

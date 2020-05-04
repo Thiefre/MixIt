@@ -33,8 +33,8 @@ public class RecipeFragment extends Fragment{
         TextView instructions = (TextView) root.findViewById(R.id.recipe_instructions);
 
         title.setText(recipe.getTitle());
-        ingredients.setText(recipe.ingredientsToString());
-        instructions.setText(recipe.getInstructions());
+        ingredients.setText("Ingredients: "+ recipe.ingredientsToString());
+        instructions.setText("Instructions: " + recipe.getInstructions());
 
         return root;
     }
