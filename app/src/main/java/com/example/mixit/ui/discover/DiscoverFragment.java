@@ -43,19 +43,30 @@ public class DiscoverFragment extends Fragment {
         final Recipe r = new Recipe("Scrambled Eggs", new ArrayList<String>(Arrays.asList("Eggs", "Butter")), R.drawable.test1, "Stir the eggs");
         recipeArray.add(r);
         recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+        recipeArray.add(r);
+
 
 
         TableLayout table = new TableLayout(this.getActivity());
         int totalButtons = recipeArray.size();
-        int totalRows = (totalButtons/3)+1;
+        int totalRows = (totalButtons/2)+1;
         for (int row = 0; row < totalRows; row++) {
             TableRow currentRow = new TableRow(this.getActivity());
-            int buttonsPerRow = 3;
-            if(totalButtons < 3)
+            int buttonsPerRow = 2;
+            if(totalButtons < 2)
             {
                 buttonsPerRow = totalButtons;
             }
-            totalButtons -= 3;
+            totalButtons -= 2;
             for (int button = 0; button < buttonsPerRow; button++) {
                 Button currentButton = new Button(this.getActivity());
                 TableRow.LayoutParams p = new TableRow.LayoutParams();
@@ -74,8 +85,8 @@ public class DiscoverFragment extends Fragment {
                     }
                 });
                 currentButton.setText("Recipe " + count+1);
-                currentButton.setHeight(300);
-                currentButton.setWidth(300);
+                currentButton.setHeight(480);
+                currentButton.setWidth(480);
 
                 Bitmap bp = BitmapFactory.decodeResource(getResources(), recipeArray.get(count).getResid());
                 Bitmap resized = Bitmap.createScaledBitmap(bp, 300, 300, true);
