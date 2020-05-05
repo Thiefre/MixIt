@@ -1,3 +1,5 @@
+package com.example.mixit;
+
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;

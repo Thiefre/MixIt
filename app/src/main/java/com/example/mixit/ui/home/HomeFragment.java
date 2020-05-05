@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.mixit.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HomeFragment extends Fragment {
 
@@ -41,10 +42,7 @@ public class HomeFragment extends Fragment {
 
         listView = root.findViewById(R.id.searchListView);
         addedItems = new ArrayList<String>();
-        myList = new ArrayList<String>();
-        myList.add("Eggs");
-        myList.add("Chicken");
-        myList.add("Beef");
+        myList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.my_foods)));
 
         adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, myList);
         searchItems = (TextView)root.findViewById(R.id.searchIngredients);
