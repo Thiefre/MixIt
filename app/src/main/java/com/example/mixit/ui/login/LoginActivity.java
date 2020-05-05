@@ -18,7 +18,7 @@ import com.example.mixit.MainActivity;
 import com.example.mixit.R;
 import com.example.mixit.ui.account.AccountFragment;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText e1,e2;
     Button b1;
     DatabaseHelper db;

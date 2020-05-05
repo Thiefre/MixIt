@@ -9,10 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mixit.MainActivity;
 import com.example.mixit.R;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     DatabaseHelper db;
     EditText e1, e2, e3, e4;
     Button b1, b2;
@@ -32,7 +31,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent myIntent = new Intent(getApplicationContext(), Login.class);
+                Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(myIntent);
             }
         });
