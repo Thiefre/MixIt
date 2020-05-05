@@ -21,4 +21,5 @@
     </string-array>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="logout">Logout</string>
 </resources>

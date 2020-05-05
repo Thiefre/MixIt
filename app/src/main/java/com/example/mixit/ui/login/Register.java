@@ -31,6 +31,7 @@ public class Register extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent myIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(myIntent);
             }
@@ -52,6 +53,7 @@ public class Register extends AppCompatActivity {
                             Boolean add = db.addUser(s1, s2, s3);
                             if (add == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         }
                         else {

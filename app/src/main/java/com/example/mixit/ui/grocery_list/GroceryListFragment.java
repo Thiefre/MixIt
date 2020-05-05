@@ -47,7 +47,7 @@ public class GroceryListFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
-                pref.edit().putString(LAST_TEXT, s.toString()).commit();
+                pref.edit().putString(LAST_TEXT, s.toString()).apply();
 
 
             }
