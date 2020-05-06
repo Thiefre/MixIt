@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.mixit.FileHelper;
 import com.example.mixit.R;
 
 import java.util.ArrayList;
@@ -24,13 +25,15 @@ import java.util.Arrays;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    ListView listView;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> myList;
+    ListView searchingListView;
+    ListView selectedListView;
+    ArrayAdapter<String> searchingAdapter;
+    ArrayAdapter<String> listAdapter;
+    ArrayList<String> databaseList;
     SearchView searchView;
-    TextView searchItems;
     ArrayList<String> addedItems;
     Button searchButton;
+    Button clearButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,30 +41,51 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        searchButton = root.findViewById(R.id.searchByIngredientList);
+        searchButton = root.findViewById(R.id.searchByIngredientListBtn);
+        clearButton = root.findViewById(R.id.clear_btn);
 
-        listView = root.findViewById(R.id.searchListView);
-        addedItems = new ArrayList<String>();
-        myList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.my_foods)));
+        searchingListView = root.findViewById(R.id.searchListView);
+        selectedListView = root.findViewById(R.id.list_ingredients);
 
-        adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, myList);
-        searchItems = (TextView)root.findViewById(R.id.searchIngredients);
-        searchItems.setText("Ingredients: ");
+        addedItems = FileHelper.readData(getActivity(), "listinfo2.dat");
+        databaseList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.my_foods)));
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        searchingAdapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, databaseList);
+        listAdapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, addedItems);
+
+        searchingListView.setAdapter(searchingAdapter);
+        selectedListView.setAdapter(listAdapter);
+        searchingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 View v;
-                int count = parent.getChildCount();
                 v = parent.getChildAt(position);
                 TextView tv = (TextView)v;
-                if(!addedItems.contains(tv.getText())) {
-                    searchItems.append(tv.getText() + ", ");
-                    addedItems.add(tv.getText().toString());
+
+                String itemEntered = tv.getText().toString();
+                if(!addedItems.contains(itemEntered)) {
+                    listAdapter.add(itemEntered);
+                    FileHelper.writeData(addedItems, getActivity(), "listinfo2.dat");
+                    Toast.makeText(getActivity(), "Item Added", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Item Already Added", Toast.LENGTH_SHORT).show();
                 }
                 searchView.setQuery("", false);
                 searchView.clearFocus();
+
+            }
+        });
+
+        selectedListView.setOnItemLongClickListener(new ListView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                addedItems.remove(position);
+                listAdapter.notifyDataSetChanged();
+                FileHelper.writeData(addedItems, getActivity(), "listinfo2.dat");
+                Toast.makeText(getActivity(), "Delete", Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
 
@@ -76,13 +100,12 @@ public class HomeFragment extends Fragment {
         {
             public boolean onQueryTextSubmit(String query)
             {
-                if(myList.contains(query))
+                if(databaseList.contains(query))
                 {
-                    adapter.getFilter().filter(query);
+                    searchingAdapter.getFilter().filter(query);
                 }
                 else
                 {
-                    Toast.makeText(getContext(), "Not found", Toast.LENGTH_LONG).show();
                 }
                 return false;
             }
@@ -90,16 +113,26 @@ public class HomeFragment extends Fragment {
             {
                 if(newText == null || newText.equals(""))
                 {
-                    listView.setVisibility(View.GONE);
+                    searchingListView.setVisibility(View.GONE);
                     searchButton.setVisibility(View.VISIBLE);
                 }
                 else
                 {
-                    listView.setVisibility(View.VISIBLE);
+                    searchingListView.setVisibility(View.VISIBLE);
                     searchButton.setVisibility(View.GONE);
                 }
-                adapter.getFilter().filter(newText);
+                searchingAdapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addedItems.clear();
+                listAdapter.notifyDataSetChanged();
+                FileHelper.writeData(addedItems, getActivity(), "listinfo2.dat");
+                Toast.makeText(getActivity(), "Cleared", Toast.LENGTH_SHORT).show();
             }
         });
         //Search button function: Search by addedItems, create new Fragment that displays the found recipes(will probably use DiscoverFragment)
