@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mixit.R;
@@ -15,6 +17,7 @@ import com.example.mixit.R;
 public class RecipeFragment extends Fragment{
     private RecipeViewModel recipeViewModel;
     private Recipe recipe;
+    Button backButton;
 
     public RecipeFragment(Recipe recipe)
     {
@@ -35,6 +38,15 @@ public class RecipeFragment extends Fragment{
         title.setText(recipe.getTitle());
         ingredients.setText("Ingredients: "+ recipe.ingredientsToString());
         instructions.setText("Instructions: " + recipe.getInstructions());
+
+        backButton = root.findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+                getParentFragmentManager().popBackStackImmediate();
+            }
+        });
 
         return root;
     }

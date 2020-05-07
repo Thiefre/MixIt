@@ -9,11 +9,11 @@ import java.util.List;
 public class Recipe
 {
     private String title;
-    private List<String> ingredients = new ArrayList<String>();
+    private ArrayList<String> ingredients = new ArrayList<String>();
     private int resid;
     private String instructions;
 
-    public Recipe(String title, List<String>ingredients, int resid, String instructions)
+    public Recipe(String title, ArrayList<String>ingredients, int resid, String instructions)
     {
         this.title = title;
         this.ingredients = ingredients;
@@ -52,5 +52,10 @@ public class Recipe
     public String ingredientsToString()
     {
         return ingredients.toString();
+    }
+
+    public ArrayList<String> getIngredientList()
+    {
+        return ingredients;
     }
 }

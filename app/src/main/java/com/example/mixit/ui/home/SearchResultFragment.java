@@ -1,4 +1,4 @@
-package com.example.mixit.ui.discover;
+package com.example.mixit.ui.home;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -17,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.example.mixit.R;
 import com.example.mixit.ui.recipes.Recipe;
@@ -25,37 +23,26 @@ import com.example.mixit.ui.recipes.RecipeFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class DiscoverFragment extends Fragment {
+public class SearchResultFragment extends Fragment {
 
-    private DiscoverViewModel discoverViewModel;
+    private SearchResultViewModel searchResultViewModel;
     public int count = 0;
-    ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
+    public ArrayList<Recipe> recipeArray;
+
+    public SearchResultFragment(ArrayList<Recipe> recipes)
+    {
+        recipeArray = recipes;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        discoverViewModel =
-                ViewModelProviders.of(this).get(DiscoverViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_discover, container, false);
-        TableLayout ll = (TableLayout)root.findViewById(R.id.layout);
-
-        //Recipe array is information from database
-        final Recipe r = new Recipe("Scrambled Eggs", new ArrayList<String>(Arrays.asList("Eggs", "Butter")), R.drawable.test1, "Stir the eggs");
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
-        recipeArray.add(r);
+        searchResultViewModel =
+                ViewModelProviders.of(this).get(SearchResultViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_search_results, container, false);
 
 
+        TableLayout ll = (TableLayout)root.findViewById(R.id.searchResultsLayout);
 
         TableLayout table = new TableLayout(this.getActivity());
         int totalButtons = recipeArray.size();
@@ -80,11 +67,9 @@ public class DiscoverFragment extends Fragment {
                     public void onClick(View v)
                     {
                         FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                        ft.replace(R.id.nav_host_fragment, new RecipeFragment(recipeArray.get(count))).addToBackStack("Discover").commit();
-                        recipeArray.clear();
+                        ft.replace(R.id.nav_host_fragment, new RecipeFragment(recipeArray.get(count))).addToBackStack("SearchResults").commit();
                     }
                 });
-                currentButton.setText("Recipe " + count+1);
                 currentButton.setHeight(480);
                 currentButton.setWidth(480);
 

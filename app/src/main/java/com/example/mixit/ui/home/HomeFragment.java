@@ -14,10 +14,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mixit.FileHelper;
 import com.example.mixit.R;
+import com.example.mixit.ui.recipes.Recipe;
+import com.example.mixit.ui.recipes.RecipeFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -136,6 +139,31 @@ public class HomeFragment extends Fragment {
             }
         });
         //Search button function: Search by addedItems, create new Fragment that displays the found recipes(will probably use DiscoverFragment)
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
+                ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
+                Recipe r = new Recipe("Eggs", new ArrayList<String>(Arrays.asList("Egg", "Butter")), R.drawable.test1, "Stir the eggs");
+                recipeArray.add(r);
+                r = new Recipe("Pork", new ArrayList<String>(Arrays.asList("Pork", "Butter")), R.drawable.test1, "Cook the pork");
+                recipeArray.add(r);
+                //Pull all recipes from database (recipeArray is a place holder) and cross reference added items with their ingredients
+                for(Recipe recipe : recipeArray)
+                {
+                    if(recipe.getIngredientList().containsAll(addedItems))
+                    {
+                        searchArray.add(recipe);
+                    }
+                }
+
+                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+                ft.replace(R.id.nav_host_fragment, new SearchResultFragment(searchArray));
+                ft.commit();
+
+            }
+        });
+
 
         return root;
     }
