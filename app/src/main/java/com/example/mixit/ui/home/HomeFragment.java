@@ -44,6 +44,8 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        searchView = root.findViewById(R.id.search);
+
         searchButton = root.findViewById(R.id.searchByIngredientListBtn);
         clearButton = root.findViewById(R.id.clear_btn);
 
@@ -92,7 +94,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        searchView = root.findViewById(R.id.search);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
