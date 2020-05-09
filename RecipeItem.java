@@ -1,4 +1,4 @@
-package com.example.recipe;
+package com.example.discover;
 
 public class RecipeItem {
     private int id;
