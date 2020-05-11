@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mixit.R;
+import com.example.mixit.ui.discover.ImageHelper;
 import com.example.mixit.ui.recipes.Recipe;
 import com.example.mixit.ui.recipes.RecipeFragment;
 
@@ -29,6 +30,7 @@ public class SearchResultFragment extends Fragment {
     private SearchResultViewModel searchResultViewModel;
     public int count = 0;
     public ArrayList<Recipe> recipeArray;
+    private ImageHelper imageHelper = new ImageHelper();
 
     public SearchResultFragment(ArrayList<Recipe> recipes)
     {
@@ -73,14 +75,14 @@ public class SearchResultFragment extends Fragment {
                 currentButton.setHeight(480);
                 currentButton.setWidth(480);
 
-                Bitmap bp = BitmapFactory.decodeResource(getResources(), recipeArray.get(count).getResid());
-                Bitmap resized = Bitmap.createScaledBitmap(bp, 300, 300, true);
-
-                BitmapDrawable bdrawable = new BitmapDrawable(getContext().getResources(), resized);
+//                Bitmap bp = imageHelper.getBitmapFromByteArray(recipeArray.get(count).getThumbnail());
+//                Bitmap resized = Bitmap.createScaledBitmap(bp, 300, 300, true);
+//
+//                BitmapDrawable bdrawable = new BitmapDrawable(getContext().getResources(), resized);
 
                 currentButton.setText(recipeArray.get(count).getTitle());
                 currentButton.setTextColor(Color.WHITE);
-                currentButton.setBackground(bdrawable);
+//                currentButton.setBackground(bdrawable);
 
                 currentRow.addView(currentButton);
             }

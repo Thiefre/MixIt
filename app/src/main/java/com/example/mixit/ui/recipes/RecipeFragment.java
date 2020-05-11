@@ -1,11 +1,14 @@
 package com.example.mixit.ui.recipes;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,11 +16,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mixit.R;
+import com.example.mixit.ui.login.DatabaseHelper;
 
 public class RecipeFragment extends Fragment{
     private RecipeViewModel recipeViewModel;
     private Recipe recipe;
+
+    DatabaseHelper loginDB;
+
     Button backButton;
+    Button addFavorite;
 
     public RecipeFragment(Recipe recipe)
     {
@@ -47,6 +55,25 @@ public class RecipeFragment extends Fragment{
                 getParentFragmentManager().popBackStackImmediate();
             }
         });
+
+        loginDB = new DatabaseHelper(getContext());
+
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+
+        Boolean loggedIn = pref.getBoolean("loggedIn", false);
+        final String username = pref.getString("username", "DEFAULT");
+
+        if(loggedIn) {
+            addFavorite = root.findViewById(R.id.add_favorite_btn);
+            addFavorite.setVisibility(View.VISIBLE);
+            addFavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loginDB.addFav(username, recipe.getId());
+                    Toast.makeText(getActivity(), "Added to Favorites", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
         return root;
     }

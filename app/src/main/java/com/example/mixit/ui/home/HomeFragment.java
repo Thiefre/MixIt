@@ -19,11 +19,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mixit.FileHelper;
 import com.example.mixit.R;
+import com.example.mixit.ui.discover.DBHelper;
 import com.example.mixit.ui.recipes.Recipe;
 import com.example.mixit.ui.recipes.RecipeFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
@@ -37,12 +40,15 @@ public class HomeFragment extends Fragment {
     ArrayList<String> addedItems;
     Button searchButton;
     Button clearButton;
+    private DBHelper db;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        db = new DBHelper(getContext(), "recipeList.db", null, 1);
 
         searchView = root.findViewById(R.id.search);
 
@@ -141,27 +147,57 @@ public class HomeFragment extends Fragment {
         });
         //Search button function: Search by addedItems, create new Fragment that displays the found recipes(will probably use DiscoverFragment)
         searchButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
+//                ArrayList<Recipe> recipeArray;
+//                recipeArray = db.recipes_SelectAll();
+//                //Pull all recipes from database (recipeArray is a place holder) and cross reference added items with their ingredients
+//                for(Recipe recipe : recipeArray)
+//                {
+//                    //if(recipe.getIngredientList.containsAll(addedItems))
+//                    {
+//                        searchArray.add(recipe);
+//                    }
+//                }
+//
+//                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+//                ft.replace(R.id.nav_host_fragment, new SearchResultFragment(searchArray));
+//                ft.commit();
+//
+//            }
+
             @Override
             public void onClick(View v) {
-                ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
-                ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
-                Recipe r = new Recipe("Eggs", new ArrayList<String>(Arrays.asList("Egg", "Butter")), R.drawable.test1, "Stir the eggs");
-                recipeArray.add(r);
-                r = new Recipe("Pork", new ArrayList<String>(Arrays.asList("Pork", "Butter")), R.drawable.test1, "Cook the pork");
-                recipeArray.add(r);
-                //Pull all recipes from database (recipeArray is a place holder) and cross reference added items with their ingredients
-                for(Recipe recipe : recipeArray)
+                ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+                int count = addedItems.size();
+                if(count == 0)
                 {
-                    if(recipe.getIngredientList().containsAll(addedItems))
-                    {
-                        searchArray.add(recipe);
-                    }
+                    Toast.makeText(getContext(), "No Ingredients To Search By", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    //search recipe in database
+                    HashMap<Integer, Integer> h = db.ingredients_selectRecipeByIngredientName(addedItems);
 
-                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                ft.replace(R.id.nav_host_fragment, new SearchResultFragment(searchArray));
-                ft.commit();
+                    //compare hashmap value with count
+                    for (Map.Entry<Integer, Integer> entry : h.entrySet()) {
+                        if (count < entry.getValue()) {
+                            h.remove(entry.getKey());
+                        }
+                    }
 
+                    for (Map.Entry<Integer, Integer> entry : h.entrySet()) {
+                        recipes.add(db.recipes_SelectById(entry.getKey()));
+                    }
+                    if (recipes.isEmpty()) {
+                        Toast.makeText(getContext(), "No Recipes Found", Toast.LENGTH_SHORT).show();
+                    } else {
+                        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+                        ft.replace(R.id.nav_host_fragment, new SearchResultFragment(recipes));
+                        ft.commit();
+                    }
+                    Toast.makeText(getContext(), "Recipe Searched", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

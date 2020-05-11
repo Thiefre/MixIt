@@ -1,9 +1,14 @@
 package com.example.mixit;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 
+import com.example.mixit.ui.discover.DBHelper;
+import com.example.mixit.ui.discover.ImageHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,8 +17,9 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
+    private ImageHelper imageHelper = new ImageHelper();
+    private DBHelper db;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        db = new DBHelper(this , "recipeList.db", null , 1);
+
+//        Drawable drawable = getResources().getDrawable(R.drawable.background, getTheme());
+//        byte[] app1 = imageHelper.getByteArrayFromDrawable(drawable);
+//        db.recipeInsert("eggs", "eggs milk", "throw", 2);
 
     }
 

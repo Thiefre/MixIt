@@ -38,10 +38,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = e1.getText().toString();
                 String password = e2.getText().toString();
-                Boolean check = db.checkLog(username, password);
+                Boolean check = db.checkLog(username.toLowerCase(), password);
                 if(check==true){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
                     Boolean loggedIn = pref.edit().putBoolean("loggedIn", true).commit();
+                    pref.edit().putString("username", username.toLowerCase()).commit();
                     finish();
                 }
                 else{

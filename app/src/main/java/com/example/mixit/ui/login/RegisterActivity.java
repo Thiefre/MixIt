@@ -47,16 +47,17 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
                 } else {
                     if (s3.equals(s4)) {
-                        boolean check = db.checkUser(s1);
-                        if (check == true) {
+                        boolean check = db.checkUser(s1.toLowerCase());
+                        if(check == false)
+                        {
+                            Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
                             Boolean add = db.addUser(s1, s2, s3);
                             if (add == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
                         }
                     }
                     Toast.makeText(getApplicationContext(), "Password do not match", Toast.LENGTH_SHORT).show();

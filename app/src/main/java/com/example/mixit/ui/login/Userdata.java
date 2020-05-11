@@ -1,19 +1,20 @@
 package com.example.mixit.ui.login;
 
 public class Userdata {
-   private String name;
-   private String username;
-   private String password;
-   private String email;
+    private String name;
+    private String username;
+    private String password;
+    private String email;
+    private String favorites;
 
-   public Userdata(){
-
-   }
-    public Userdata(String name, String username, String password, String email){
+    public Userdata(){
+    }
+    public Userdata(String name, String username, String password, String email, String favorites){
         this.name = name;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.favorites = favorites;
     }
 
     public String getName() {
@@ -46,5 +47,14 @@ public class Userdata {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFavorites(){
+        return favorites;
+    }
+
+    public void setFavorites(String favorites)
+    {
+        this.favorites = favorites;
     }
 }

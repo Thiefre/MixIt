@@ -9,26 +9,22 @@ import java.util.List;
 public class Recipe
 {
     private String title;
-    private ArrayList<String> ingredients = new ArrayList<String>();
-    private int resid;
+    private String ingredients;
+    private int id;
     private String instructions;
+//    private byte[] thumbnail;
+//    private byte[] mainImg;
+    private int count;
 
-    public Recipe(String title, ArrayList<String>ingredients, int resid, String instructions)
+    public Recipe(int id, String title, String ingredients, String instructions, int ingCount)
     {
         this.title = title;
         this.ingredients = ingredients;
-        this.resid = resid;
+        this.id = id;
         this.instructions = instructions;
-    }
-
-    public void addIngredient(String ingredient)
-    {
-        ingredients.add(ingredient);
-    }
-
-    public void removeIngredient(String ingredient)
-    {
-        ingredients.remove(ingredient);
+//        this.thumbnail = thumbnail;
+//        this.mainImg = mainImg;
+        this.count = ingCount;
     }
 
     public void setTitle(String title)
@@ -36,13 +32,25 @@ public class Recipe
         this.title = title;
     }
 
+//    public byte[] getThumbnail() {
+//        return thumbnail;
+//    }
+//
+//    public byte[] getMainImg() {
+//        return mainImg;
+//    }
     public String getTitle()
     {
         return title;
     }
-    public int getResid()
+
+    public int getIngredientCount()
     {
-        return resid;
+        return count;
+    }
+    public int getId()
+    {
+        return id;
     }
 
     public String getInstructions()
@@ -51,11 +59,26 @@ public class Recipe
     }
     public String ingredientsToString()
     {
-        return ingredients.toString();
-    }
-
-    public ArrayList<String> getIngredientList()
-    {
         return ingredients;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        System.out.println("I was here");
+        if(o instanceof Recipe)
+        {
+            Recipe r = (Recipe) o;
+            if(r.getId() == this.id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public int hashCode()
+    {
+        return id*title.length();
+    }
+
 }
