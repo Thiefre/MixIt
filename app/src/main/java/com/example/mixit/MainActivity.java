@@ -15,6 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity {
 
     private ImageHelper imageHelper = new ImageHelper();
@@ -33,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        db = new DBHelper(this , "recipeList.db", null , 1);
+        db = new DBHelper(this ,"recipeList.db", null , 1);
 
 //        Drawable drawable = getResources().getDrawable(R.drawable.background, getTheme());
 //        byte[] app1 = imageHelper.getByteArrayFromDrawable(drawable);

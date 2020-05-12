@@ -164,6 +164,8 @@ public class DBHelper extends SQLiteOpenHelper
                 //returns the recipe by the id use for favorties tab
             }
         }
+        cursor.close();
+        db.close();
         return  null;
     }
 
@@ -197,6 +199,7 @@ public class DBHelper extends SQLiteOpenHelper
             Recipe r = this.recipes_SelectById(rand);
             list.add(r);
         }
+        db.close();
         return new ArrayList<Recipe>(list);
     }
 
