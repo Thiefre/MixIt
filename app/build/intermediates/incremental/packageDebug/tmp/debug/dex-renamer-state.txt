@@ -1,0 +1,4 @@
+#Tue May 12 02:48:09 PDT 2020
+base.0=C\:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
