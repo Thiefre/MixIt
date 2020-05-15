@@ -29,84 +29,83 @@
 19-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:11:9-54
 20        android:supportsRtl="true"
 20-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:12:9-35
-21        android:testOnly="true"
-22        android:theme="@style/AppTheme" >
-22-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:13:9-40
-23        <activity
-23-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:14:9-22:20
-24            android:name="com.example.mixit.MainActivity"
-24-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:15:13-41
-25            android:label="@string/app_name" >
-25-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:16:13-45
-26            <intent-filter>
-26-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:17:13-21:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:17-69
-27-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:17-77
-29-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity
-32-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:23:9-30:20
-33            android:name="com.example.mixit.ui.login.LoginActivity"
-33-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:24:13-51
-34            android:label="@string/app_name" >
-34-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:25:13-45
-35            <intent-filter>
-35-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:26:13-29:29
-36                <action android:name="android.intent.action.LOGIN" />
-36-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:17-70
-36-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:25-67
-37            </intent-filter>
-38        </activity>
-39        <activity
-39-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:31:9-38:20
-40            android:name="com.example.mixit.ui.login.RegisterActivity"
-40-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:32:13-54
-41            android:label="@string/app_name" >
-41-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:33:13-45
-42            <intent-filter>
-42-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:34:13-37:29
-43                <action android:name="android.intent.action.REGISTER" />
-43-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:17-73
-43-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:25-70
-44            </intent-filter>
-45        </activity>
-46        <activity
-46-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:39:9-46:20
-47            android:name="com.example.mixit.ui.login.ChangePasswordActivity"
-47-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:40:13-60
-48            android:label="@string/app_name" >
-48-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:41:13-45
-49            <intent-filter>
-49-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:42:13-45:29
-50                <action android:name="android.intent.action.CHANGE_PASSWORD" />
-50-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:17-80
-50-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:25-77
-51            </intent-filter>
-52        </activity>
-53
-54        <provider
-54-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
-55            android:name="com.squareup.picasso.PicassoProvider"
-55-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
-56            android:authorities="com.example.mixit.com.squareup.picasso"
-56-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
-57            android:exported="false" />
-57-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
-58        <provider
-58-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
-59            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-59-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
-60            android:authorities="com.example.mixit.lifecycle-process"
-60-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
-61            android:exported="false"
-61-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
-62            android:multiprocess="true" />
-62-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
-63    </application>
-64
-65</manifest>
+21        android:theme="@style/AppTheme" >
+21-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:13:9-40
+22        <activity
+22-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:14:9-22:20
+23            android:name="com.example.mixit.MainActivity"
+23-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:15:13-41
+24            android:label="@string/app_name" >
+24-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:16:13-45
+25            <intent-filter>
+25-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:17:13-21:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:17-69
+26-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:17-77
+28-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:27-74
+29            </intent-filter>
+30        </activity>
+31        <activity
+31-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:23:9-30:20
+32            android:name="com.example.mixit.ui.login.LoginActivity"
+32-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:24:13-51
+33            android:label="@string/app_name" >
+33-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:25:13-45
+34            <intent-filter>
+34-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:26:13-29:29
+35                <action android:name="android.intent.action.LOGIN" />
+35-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:17-70
+35-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:25-67
+36            </intent-filter>
+37        </activity>
+38        <activity
+38-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:31:9-38:20
+39            android:name="com.example.mixit.ui.login.RegisterActivity"
+39-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:32:13-54
+40            android:label="@string/app_name" >
+40-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:33:13-45
+41            <intent-filter>
+41-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:34:13-37:29
+42                <action android:name="android.intent.action.REGISTER" />
+42-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:17-73
+42-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:25-70
+43            </intent-filter>
+44        </activity>
+45        <activity
+45-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:39:9-46:20
+46            android:name="com.example.mixit.ui.login.ChangePasswordActivity"
+46-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:40:13-60
+47            android:label="@string/app_name" >
+47-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:41:13-45
+48            <intent-filter>
+48-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:42:13-45:29
+49                <action android:name="android.intent.action.CHANGE_PASSWORD" />
+49-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:17-80
+49-->C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:25-77
+50            </intent-filter>
+51        </activity>
+52
+53        <provider
+53-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+54            android:name="com.squareup.picasso.PicassoProvider"
+54-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+55            android:authorities="com.example.mixit.com.squareup.picasso"
+55-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+56            android:exported="false" />
+56-->[com.squareup.picasso:picasso:2.71828] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\16e155b2c5f74f37682e17bd8cb57425\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+57        <provider
+57-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+58            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+59            android:authorities="com.example.mixit.lifecycle-process"
+59-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+60            android:exported="false"
+60-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+61            android:multiprocess="true" />
+61-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+62    </application>
+63
+64</manifest>

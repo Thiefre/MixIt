@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Layout;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -48,7 +51,7 @@ public class DiscoverFragment extends Fragment {
     ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
     SearchView searchView;
     ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
-    TableLayout ll;
+    ScrollView ll;
     private RecipeButton currentButton;
     private Recipe currentRecipe;
 
@@ -59,7 +62,7 @@ public class DiscoverFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_discover, container, false);
         ll = root.findViewById(R.id.layout);
 
-        db = new DBHelper(getContext(), "recipeList.db", null, 1);
+        db = DBHelper.getInstance(getActivity().getApplicationContext());
 
         //Recipe array is information from database
         recipeArray = db.randomRecipe();
@@ -116,7 +119,12 @@ public class DiscoverFragment extends Fragment {
 
 
     public TableLayout createButtons(final ArrayList<Recipe> recipes) throws IOException {
+        TableLayout.LayoutParams tp = new TableLayout.LayoutParams();
         TableLayout table = new TableLayout(this.getActivity());
+
+        tp.width = LayoutParams.MATCH_PARENT;
+        tp.height = LayoutParams.MATCH_PARENT;
+
         int totalButtons = recipes.size();
         int totalRows = (totalButtons/2)+1;
         for (int row = 0; row < totalRows; row++) {
@@ -136,11 +144,15 @@ public class DiscoverFragment extends Fragment {
                 p.topMargin = 10;
                 currentButton.setLayoutParams(p);
                 currentButton.setRecipeListener(recipes.get(count), getParentFragmentManager());
-                currentButton.setHeight(480);
-                currentButton.setWidth(480);
+                currentButton.setHeight(450);
+                DisplayMetrics displaymetrics = new DisplayMetrics();
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+                int width = displaymetrics.widthPixels;
+                int buttonWidth = (int)(width/2.2);
+                currentButton.setWidth(buttonWidth);
                 Picasso.get()
                         .load(currentRecipe.getResid())
-                        .resize(480,480)
+                        .resize(buttonWidth,450)
                         .into(currentButton);
 //                Bitmap resized = Bitmap.createScaledBitmap(bit, 480, 480, true);
 

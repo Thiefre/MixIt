@@ -1676,6 +1676,8 @@ id recipe_instructions
 id recipe_title
 id register
 id register_button
+id relativeLayout
+id relativeLayout2
 id remove_favorite_btn
 id right
 id right_icon

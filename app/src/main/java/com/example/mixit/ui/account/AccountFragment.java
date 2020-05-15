@@ -74,7 +74,7 @@ public class AccountFragment extends Fragment {
         final Button accountChangePassword = root.findViewById(R.id.account_change_btn);
 
         loginDB = new DatabaseHelper(getContext());
-        recipeDB = new DBHelper(getContext(), "recipeList.db", null, 1);
+        recipeDB = DBHelper.getInstance(getActivity().getApplicationContext());
 
         if(loggedIn == false) {
 

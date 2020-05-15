@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        db = new DBHelper(getContext(), "recipeList.db", null, 1);
+        db = DBHelper.getInstance(getActivity().getApplicationContext());
 
         searchView = root.findViewById(R.id.search);
 
