@@ -13,6 +13,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+
     public DatabaseHelper(Context context){
         super(context, "login.db", null, 2);
     }
@@ -101,6 +102,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("UPDATE favorites SET favorite = '" + favTEMP + "' WHERE username = '" + username + "' ;");
         db.close();
     }
+    public boolean removeFav(String username, int fav){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String str = "";
+        ArrayList<Integer> favs = getIdFavorites(username);
+        ArrayList<Integer> removeList = favs;
+
+        for(int i = 0; i < favs.size(); i++){
+            if(favs.get(i) == fav){
+                removeList.remove(i);
+            }
+        }
+        favs = removeList;
+        for(Integer id : favs)
+        {
+            str += id+ ",";
+        }
+        if(!str.isEmpty()) {
+            if (str.charAt(str.length()-1) == ',') {
+                str = str.substring(0, str.length() - 1);
+            }
+        }
+        db.execSQL("UPDATE favorites SET favorite = '" + str + "' WHERE username = '" + username + "' ;");
+        return true;
+    }
+
+
 
     //retrieve favorites
     public ArrayList<Integer> getIdFavorites(String username){
@@ -115,16 +142,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         List<String> temp = Arrays.asList(str.split(","));
-        if(!temp.isEmpty()) {
-            for (int i = 0; i < temp.size(); i++) {
-                if(!temp.get(i).isEmpty())
-                {
-                    list_id.add(Integer.parseInt(temp.get(i)));
-                }
+        for(int i=0;i<temp.size();i++)
+        {
+            if(!temp.get(i).isEmpty()) {
+                list_id.add(Integer.parseInt(temp.get(i)));
             }
         }
-        cursor.close();
-        db.close();
         return list_id;
     }
 

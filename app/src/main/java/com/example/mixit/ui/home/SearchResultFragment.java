@@ -20,7 +20,9 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.mixit.R;
 import com.example.mixit.ui.discover.ImageHelper;
 import com.example.mixit.ui.recipes.Recipe;
+import com.example.mixit.ui.recipes.RecipeButton;
 import com.example.mixit.ui.recipes.RecipeFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,9 +30,10 @@ import java.util.Arrays;
 public class SearchResultFragment extends Fragment {
 
     private SearchResultViewModel searchResultViewModel;
-    public int count = 0;
-    public ArrayList<Recipe> recipeArray;
+    private int count = 0;
+    private ArrayList<Recipe> recipeArray;
     private ImageHelper imageHelper = new ImageHelper();
+    private TableLayout ll;
 
     public SearchResultFragment(ArrayList<Recipe> recipes)
     {
@@ -44,8 +47,19 @@ public class SearchResultFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_search_results, container, false);
 
 
-        TableLayout ll = (TableLayout)root.findViewById(R.id.searchResultsLayout);
+        ll = (TableLayout)root.findViewById(R.id.searchResultsLayout);
+        return root;
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        ll.removeAllViews();
+        ll.addView(createSearchButtons());
+    }
+
+    public TableLayout createSearchButtons()
+    {
         TableLayout table = new TableLayout(this.getActivity());
         int totalButtons = recipeArray.size();
         int totalRows = (totalButtons/2)+1;
@@ -58,20 +72,18 @@ public class SearchResultFragment extends Fragment {
             }
             totalButtons -= 2;
             for (int button = 0; button < buttonsPerRow; button++) {
-                Button currentButton = new Button(this.getActivity());
+                RecipeButton currentButton = new RecipeButton(this.getActivity());
                 TableRow.LayoutParams p = new TableRow.LayoutParams();
                 p.rightMargin = 20;
                 p.bottomMargin = 20;
                 currentButton.setLayoutParams(p);
-                currentButton.setOnClickListener(new View.OnClickListener()
+                System.out.print("Recipes: ");
+                for(Recipe r: recipeArray)
                 {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                        ft.replace(R.id.nav_host_fragment, new RecipeFragment(recipeArray.get(count))).addToBackStack("SearchResults").commit();
-                    }
-                });
+                    System.out.print(r.getTitle()+", ");
+                }
+                System.out.println("");
+                currentButton.setRecipeListener(recipeArray.get(count), getParentFragmentManager());
                 currentButton.setHeight(480);
                 currentButton.setWidth(480);
 
@@ -82,16 +94,20 @@ public class SearchResultFragment extends Fragment {
 
                 currentButton.setText(recipeArray.get(count).getTitle());
                 currentButton.setTextColor(Color.WHITE);
-//                currentButton.setBackground(bdrawable);
+                Picasso.get()
+                        .load(recipeArray.get(count).getResid())
+                        .resize(480,480)
+                        .into(currentButton);
 
                 currentRow.addView(currentButton);
+                count++;
             }
             table.addView(currentRow);
         }
+        count = 0;
         TableRow emptyRow = new TableRow(this.getActivity());
         table.addView(emptyRow);
-        ll.addView(table);
 
-        return root;
+        return table;
     }
 }

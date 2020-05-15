@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class DBHelper extends SQLiteOpenHelper
 {
@@ -29,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         //create table
         db.execSQL("CREATE TABLE IF NOT EXISTS recipeList(recipeID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "recipeName TEXT, ingredients TEXT, method TEXT, thumbnail BLOB, mainIMG BLOB, ingCount INTEGER)");
+                "recipeName TEXT, ingredients TEXT, method TEXT, ingCount INTEGER, resid INTEGER)");
         db.execSQL("PRAGMA case_sensitive_like = true;");
     }
 
@@ -54,43 +55,27 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     //insert function can also be used as publish function
-    public void recipeInsert(String recipeName,  String ingredients, String method, int ingCount) {
+    public void recipeInsert(String recipeName,  String ingredients, String method, int ingCount, int resid) {
 
 
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "INSERT INTO recipeList VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO recipeList VALUES(?,?,?,?,?,?)";
         SQLiteStatement p = db.compileStatement(sql);
         p.bindNull(1);
         p.bindString(2, recipeName);
         p.bindString(3, ingredients);
         p.bindString(4, method);
         p.bindLong(5, ingCount);
-        p.executeInsert();
-    }
-
-    //this method lets the user publish recipe into the database
-    public void publishRecipe(String recipeName,  String ingredients, String method,
-                              byte[] thumbnail, byte[] mainImg, int ingCount)
-    {
-
-        SQLiteDatabase db = getWritableDatabase();
-        String sql = "INSERT INTO recipeList VALUES(NULL, ?,?,?,?,?,?,?)";
-        SQLiteStatement p = db.compileStatement(sql);
-        p.bindNull(1);
-        p.bindString(2, recipeName);
-        p.bindString(3, ingredients);
-        p.bindString(4, method);
-        p.bindLong(5, ingCount);
+        p.bindLong(6, resid);
         p.executeInsert();
     }
 
     //SEARCH BY INGREDIENTS
     // change the where statement some how need the items to be scanned in the whole thing instead of compared
     // [eggs, milk]
-    public HashMap<Integer, Integer> ingredients_selectRecipeByIngredientName(ArrayList<String> ingredientsName){
+    public ArrayList<Integer> ingredients_selectRecipeByIngredientName(ArrayList<String> ingredientsName){
         SQLiteDatabase db = getReadableDatabase();
-        HashMap<Integer, Integer> idRecipes = new HashMap<Integer, Integer>();
-
+        ArrayList<Integer> idRecipes = new ArrayList<>();
         String strNames = "";
         for (int i=0; i < ingredientsName.size(); i++)
         {
@@ -100,18 +85,29 @@ public class DBHelper extends SQLiteOpenHelper
                 strNames += " AND ";
             }
         }
-
         strNames = "SELECT recipeID, ingCount FROM recipeList WHERE "+ strNames;
         Cursor cursor = db.rawQuery(strNames, null);
 
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                idRecipes.put(cursor.getInt(0), cursor.getInt(1));
+                idRecipes.add(cursor.getInt(0));
             }
         }
         cursor.close();
         db.close();
         return idRecipes;
+    }
+
+    public int getIngCount(int recipeID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int ingCount=0;
+        Cursor cursor = db.rawQuery("SELECT ingCount from recipeList where recipeID= "+recipeID, null);
+        if(cursor!=null){
+            while(cursor.moveToNext()){
+                ingCount = cursor.getInt(0);
+            }
+        }
+        return ingCount;
     }
 
     //RETURNS RECIPE SEARCHED BY NAME, USED FOR THE DISOCVER SEARCH
@@ -132,7 +128,8 @@ public class DBHelper extends SQLiteOpenHelper
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4)
+                        cursor.getInt(4),
+                        cursor.getInt(5)
                 );
                 recipeList.add(recipe);
                 //returns the recipe searched by the name of the recipe
@@ -156,7 +153,8 @@ public class DBHelper extends SQLiteOpenHelper
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4)
+                        cursor.getInt(4),
+                        cursor.getInt(5)
                 );
                 cursor.close();
                 db.close();
@@ -218,7 +216,8 @@ public class DBHelper extends SQLiteOpenHelper
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4)
+                        cursor.getInt(4),
+                        cursor.getInt(5)
                 ));
             }
         }
@@ -228,4 +227,3 @@ public class DBHelper extends SQLiteOpenHelper
         return allRecipes;
     }
 }
-

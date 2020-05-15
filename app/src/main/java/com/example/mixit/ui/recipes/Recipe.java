@@ -12,11 +12,12 @@ public class Recipe
     private String ingredients;
     private int id;
     private String instructions;
-//    private byte[] thumbnail;
+    //    private byte[] thumbnail;
 //    private byte[] mainImg;
     private int count;
+    private int resid;
 
-    public Recipe(int id, String title, String ingredients, String instructions, int ingCount)
+    public Recipe(int id, String title, String ingredients, String instructions, int ingCount, int resid)
     {
         this.title = title;
         this.ingredients = ingredients;
@@ -25,6 +26,7 @@ public class Recipe
 //        this.thumbnail = thumbnail;
 //        this.mainImg = mainImg;
         this.count = ingCount;
+        this.resid=resid;
     }
 
     public void setTitle(String title)
@@ -32,7 +34,7 @@ public class Recipe
         this.title = title;
     }
 
-//    public byte[] getThumbnail() {
+    //    public byte[] getThumbnail() {
 //        return thumbnail;
 //    }
 //
@@ -81,4 +83,11 @@ public class Recipe
         return id*title.length();
     }
 
+    public int getResid(){
+        return resid;
+    }
+
+    public void setResid(int resid){
+        this.resid = resid;
+    }
 }

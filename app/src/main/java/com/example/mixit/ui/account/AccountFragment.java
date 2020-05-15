@@ -118,15 +118,8 @@ public class AccountFragment extends Fragment {
             favoritesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ArrayList<Integer> recipeIDs = loginDB.getIdFavorites(username);
-                    ArrayList<Recipe> recipeList = new ArrayList<Recipe>();
-                    for(int id : recipeIDs)
-                    {
-                        recipeList.add(recipeDB.recipes_SelectById(id));
-                    }
-
                     FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                    ft.replace(R.id.nav_host_fragment, new SearchResultFragment(recipeList)).addToBackStack("Favorites").commit();
+                    ft.replace(R.id.nav_host_fragment, new FavoritesFragment(recipeDB, loginDB, username)).addToBackStack("Favorites").commit();
                 }
             });
 

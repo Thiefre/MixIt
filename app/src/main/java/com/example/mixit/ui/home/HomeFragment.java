@@ -26,6 +26,7 @@ import com.example.mixit.ui.recipes.RecipeFragment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class HomeFragment extends Fragment {
@@ -170,6 +171,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+                ArrayList<Integer> recipeIDs = new ArrayList<Integer>();
                 int count = addedItems.size();
                 if(count == 0)
                 {
@@ -177,17 +179,23 @@ public class HomeFragment extends Fragment {
                 }
                 else {
                     //search recipe in database
-                    HashMap<Integer, Integer> h = db.ingredients_selectRecipeByIngredientName(addedItems);
+                    recipeIDs = db.ingredients_selectRecipeByIngredientName(addedItems);
 
-                    //compare hashmap value with count
-                    for (Map.Entry<Integer, Integer> entry : h.entrySet()) {
-                        if (count < entry.getValue()) {
-                            h.remove(entry.getKey());
+                    System.out.println("recipeid size: "+ recipeIDs.size());
+                    ArrayList<Integer> copyList = new ArrayList<Integer>();
+
+                    for(int i=0; i<recipeIDs.size(); i++){
+                        int temp = db.getIngCount(recipeIDs.get(i));
+                        if(addedItems.size() >= temp){
+                            copyList.add(recipeIDs.get(i));
                         }
                     }
+                    recipeIDs = copyList;
 
-                    for (Map.Entry<Integer, Integer> entry : h.entrySet()) {
-                        recipes.add(db.recipes_SelectById(entry.getKey()));
+
+                    for(Integer i : recipeIDs)
+                    {
+                        recipes.add(db.recipes_SelectById(i));
                     }
                     if (recipes.isEmpty()) {
                         Toast.makeText(getContext(), "No Recipes Found", Toast.LENGTH_SHORT).show();

@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_compass.png.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\compass.png"
+    },
+    {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
@@ -56,6 +60,10 @@
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chicken_salad.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\chicken_salad.jpg"
+    },
+    {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
@@ -72,6 +80,10 @@
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_home_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_basic_omelet.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\basic_omelet.jpg"
+    },
+    {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
@@ -84,6 +96,10 @@
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\menu\\search.xml"
     },
     {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_basic_scrambled_eggs.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\basic_scrambled_eggs.jpg"
+    },
+    {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
     },
@@ -94,6 +110,14 @@
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_home_black_24dp.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baked_omelet.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\baked_omelet.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_account.png.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\account.png"
     },
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
@@ -114,6 +138,10 @@
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_dashboard_black_24dp.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_grilled_cheese.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\grilled_cheese.jpg"
     },
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_notifications_black_24dp.png.flat",
@@ -152,6 +180,10 @@
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_beef_and_broccoli.jpg.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\beef_and_broccoli.jpg"
+    },
+    {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black_24dp.png"
     },
@@ -162,6 +194,10 @@
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_search.png.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\search.png"
     },
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_notifications_black_24dp.png.flat",
@@ -186,6 +222,10 @@
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_dashboard_black_24dp.png.flat",
         "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\drawable_list.png.flat",
+        "source": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\src\\main\\res\\drawable\\list.png"
     },
     {
         "merged": "C:\\Users\\Kevin\\Desktop\\MixIt\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",

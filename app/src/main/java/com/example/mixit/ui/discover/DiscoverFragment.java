@@ -4,7 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +25,16 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.example.mixit.R;
 import com.example.mixit.ui.recipes.Recipe;
+import com.example.mixit.ui.recipes.RecipeButton;
 import com.example.mixit.ui.recipes.RecipeFragment;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,11 +44,13 @@ public class DiscoverFragment extends Fragment {
     private DiscoverViewModel discoverViewModel;
     private DBHelper db;
     private ImageHelper imageHelper = new ImageHelper();
-    public int count = 0;
+    private int count = 0;
     ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
     SearchView searchView;
     ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
     TableLayout ll;
+    private RecipeButton currentButton;
+    private Recipe currentRecipe;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,7 +73,11 @@ public class DiscoverFragment extends Fragment {
             {
                 searchArray = db.recipes_SelectByName(query.toLowerCase());
                 ll.removeAllViews();
-                ll.addView(createButtons(searchArray));
+                try {
+                    ll.addView(createButtons(searchArray));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 searchArray.clear();
                 return false;
             }
@@ -79,20 +95,27 @@ public class DiscoverFragment extends Fragment {
             public void onClick(View v) {
                 // Manage this event.
                 ll.removeAllViews();
-                ll.addView(createButtons(recipeArray));
+                try {
+                    ll.addView(createButtons(recipeArray));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 searchView.setQuery("", false);
                 searchView.clearFocus();
             }
         });
 
-        ll.addView(createButtons(recipeArray));
+        try {
+            ll.addView(createButtons(recipeArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return root;
     }
 
 
-    public TableLayout createButtons(final ArrayList<Recipe> recipes)
-    {
+    public TableLayout createButtons(final ArrayList<Recipe> recipes) throws IOException {
         TableLayout table = new TableLayout(this.getActivity());
         int totalButtons = recipes.size();
         int totalRows = (totalButtons/2)+1;
@@ -105,34 +128,26 @@ public class DiscoverFragment extends Fragment {
             }
             totalButtons -= 2;
             for (int button = 0; button < buttonsPerRow; button++) {
-                Button currentButton = new Button(this.getActivity());
+                currentRecipe = recipes.get(count);
+                currentButton = new RecipeButton(this.getActivity());
                 TableRow.LayoutParams p = new TableRow.LayoutParams();
                 p.rightMargin = 20;
                 p.bottomMargin = 10;
                 p.topMargin = 10;
                 currentButton.setLayoutParams(p);
-                currentButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                        ft.replace(R.id.nav_host_fragment, new RecipeFragment(recipeArray.get(count))).addToBackStack("Discover").commit();
-                        recipes.clear();
-                    }
-                });
-                currentButton.setText("Recipe " + recipeArray.get(count).getId());
+                currentButton.setRecipeListener(recipes.get(count), getParentFragmentManager());
                 currentButton.setHeight(480);
                 currentButton.setWidth(480);
-
-//                Bitmap bp = imageHelper.getBitmapFromByteArray(recipes.get(count).getThumbnail());
-//                Bitmap resized = Bitmap.createScaledBitmap(bp, 300, 300, true);
+                Picasso.get()
+                        .load(currentRecipe.getResid())
+                        .resize(480,480)
+                        .into(currentButton);
+//                Bitmap resized = Bitmap.createScaledBitmap(bit, 480, 480, true);
 
 //                BitmapDrawable bdrawable = new BitmapDrawable(getContext().getResources(), resized);
 
-//                currentButton.setText(recipes.get(count).getTitle());
-//                currentButton.setTextColor(Color.WHITE);
-//                currentButton.setBackground(bdrawable);
+                currentButton.setText(currentRecipe.getTitle());
+                currentButton.setTextColor(Color.WHITE);
 
                 currentRow.addView(currentButton);
                 count++;

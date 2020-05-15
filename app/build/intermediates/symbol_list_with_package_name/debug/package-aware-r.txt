@@ -1363,9 +1363,14 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable account
 drawable avd_hide_password
 drawable avd_show_password
 drawable background
+drawable baked_omelet
+drawable basic_omelet
+drawable basic_scrambled_eggs
+drawable beef_and_broccoli
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1375,12 +1380,15 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable btn_rounded
+drawable chicken_salad
+drawable compass
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable grilled_cheese
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
 drawable ic_dashboard_black_24dp
@@ -1397,6 +1405,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
+drawable list
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1419,6 +1428,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable search
 drawable test1
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1586,6 +1596,8 @@ id left
 id line1
 id line3
 id linearLayout
+id linearLayout2
+id linearLayout4
 id listMode
 id list_ingredients
 id list_item

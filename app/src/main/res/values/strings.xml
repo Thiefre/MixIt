@@ -17,7 +17,23 @@
         <item>Milk</item>
         <item>Pepper</item>
         <item>Rice</item>
-        <item>Pasta</item>
+        <item>Onion</item>
+        <item>Ham</item>
+        <item>Cheese</item>
+        <item>Bread</item>
+        <item>Butter</item>
+        <item>Tomato</item>
+        <item>Mayonnaise</item>
+        <item>Celery</item>
+        <item>Cornstarch</item>
+        <item>Steak</item>
+        <item>Soy_sauce</item>
+        <item>Sugar</item>
+        <item>Garlic</item>
+        <item>Oil</item>
+        <item>Broccoli</item>
+        <item>Ginger</item>
+
     </string-array>
     <string name="login">Login</string>
     <string name="register">Register</string>
