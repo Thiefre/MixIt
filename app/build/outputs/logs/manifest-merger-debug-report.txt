@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\76c4813883b4d8eb116f444839903a34\navigation-ui-2.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\eaf17b24d60dc773c7680b20ac141638\material-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\ea88890b09526096266c9c16859169ae\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -51,20 +51,20 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Kevin\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\1e517e060e22e5750a896c56d451ab07\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\f084663c35e36265d32f84cf27bfe14a\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\02e272269748a331fcc448332a33a66d\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:4:5-32
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:2:11-69
@@ -73,7 +73,7 @@ ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:7:5-50:19
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:7:5-51:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\eaf17b24d60dc773c7680b20ac141638\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\eaf17b24d60dc773c7680b20ac141638\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\cb3ee0668a2ccffbec6ced598c9d8e79\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -88,6 +88,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Ke
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\f4e6f5083e31829c93f71953ffc4081f\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:22:5-28:19
+	android:screenOrientation
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:13:9-45
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\Kevin\.gradle\caches\transforms-2\files-2.1\da95e0dd41fd0c634661df2a0f122634\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -101,59 +103,59 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Kevin\.gradle\
 	android:allowBackup
 		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:13:9-40
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:14:9-40
 activity#com.example.mixit.MainActivity
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:14:9-22:20
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:label
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:16:13-45
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:17:13-45
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:15:13-41
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:16:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:17:13-21:29
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:17-77
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:20:27-74
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:21:27-74
 activity#com.example.mixit.ui.login.LoginActivity
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:23:9-30:20
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:24:9-31:20
 	android:label
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:25:13-45
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:26:13-45
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:24:13-51
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:25:13-51
 intent-filter#action:name:android.intent.action.LOGIN
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:26:13-29:29
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:13-30:29
 action#android.intent.action.LOGIN
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:17-70
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:28:17-70
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:27:25-67
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:28:25-67
 activity#com.example.mixit.ui.login.RegisterActivity
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:31:9-38:20
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:32:9-39:20
 	android:label
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:33:13-45
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:34:13-45
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:32:13-54
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:33:13-54
 intent-filter#action:name:android.intent.action.REGISTER
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:34:13-37:29
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:13-38:29
 action#android.intent.action.REGISTER
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:17-73
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:36:17-73
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:35:25-70
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:36:25-70
 activity#com.example.mixit.ui.login.ChangePasswordActivity
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:39:9-46:20
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:40:9-47:20
 	android:label
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:41:13-45
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:42:13-45
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:40:13-60
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:41:13-60
 intent-filter#action:name:android.intent.action.CHANGE_PASSWORD
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:42:13-45:29
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:13-46:29
 action#android.intent.action.CHANGE_PASSWORD
-ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:17-80
+ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:44:17-80
 	android:name
-		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:43:25-77
+		ADDED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml:44:25-77
 uses-sdk
 INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Kevin\Desktop\MixIt\app\src\main\AndroidManifest.xml

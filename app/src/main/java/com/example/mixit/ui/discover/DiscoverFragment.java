@@ -51,7 +51,7 @@ public class DiscoverFragment extends Fragment {
     ArrayList<Recipe> recipeArray = new ArrayList<Recipe>();
     SearchView searchView;
     ArrayList<Recipe> searchArray = new ArrayList<Recipe>();
-    ScrollView ll;
+    ScrollView scrollView;
     private RecipeButton currentButton;
     private Recipe currentRecipe;
 
@@ -60,7 +60,7 @@ public class DiscoverFragment extends Fragment {
         discoverViewModel =
                 ViewModelProviders.of(this).get(DiscoverViewModel.class);
         View root = inflater.inflate(R.layout.fragment_discover, container, false);
-        ll = root.findViewById(R.id.layout);
+        scrollView = root.findViewById(R.id.layout);
 
         db = DBHelper.getInstance(getActivity().getApplicationContext());
 
@@ -75,12 +75,8 @@ public class DiscoverFragment extends Fragment {
             public boolean onQueryTextSubmit(String query)
             {
                 searchArray = db.recipes_SelectByName(query.toLowerCase());
-                ll.removeAllViews();
-                try {
-                    ll.addView(createButtons(searchArray));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                scrollView.removeAllViews();
+                scrollView.addView(createButtons(searchArray));
                 searchArray.clear();
                 return false;
             }
@@ -97,28 +93,20 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Manage this event.
-                ll.removeAllViews();
-                try {
-                    ll.addView(createButtons(recipeArray));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                scrollView.removeAllViews();
+                scrollView.addView(createButtons(recipeArray));
                 searchView.setQuery("", false);
                 searchView.clearFocus();
             }
         });
 
-        try {
-            ll.addView(createButtons(recipeArray));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        scrollView.addView(createButtons(recipeArray));
 
         return root;
     }
 
 
-    public TableLayout createButtons(final ArrayList<Recipe> recipes) throws IOException {
+    public TableLayout createButtons(final ArrayList<Recipe> recipes) {
         TableLayout.LayoutParams tp = new TableLayout.LayoutParams();
         TableLayout table = new TableLayout(this.getActivity());
 
@@ -143,7 +131,7 @@ public class DiscoverFragment extends Fragment {
                 p.bottomMargin = 10;
                 p.topMargin = 10;
                 currentButton.setLayoutParams(p);
-                currentButton.setRecipeListener(recipes.get(count), getParentFragmentManager());
+                currentButton.setRecipeListener(currentRecipe, getParentFragmentManager());
                 currentButton.setHeight(450);
                 DisplayMetrics displaymetrics = new DisplayMetrics();
                 getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
@@ -154,12 +142,10 @@ public class DiscoverFragment extends Fragment {
                         .load(currentRecipe.getResid())
                         .resize(buttonWidth,450)
                         .into(currentButton);
-//                Bitmap resized = Bitmap.createScaledBitmap(bit, 480, 480, true);
-
-//                BitmapDrawable bdrawable = new BitmapDrawable(getContext().getResources(), resized);
 
                 currentButton.setText(currentRecipe.getTitle());
                 currentButton.setTextColor(Color.WHITE);
+                currentButton.setTextSize(20);
 
                 currentRow.addView(currentButton);
                 count++;

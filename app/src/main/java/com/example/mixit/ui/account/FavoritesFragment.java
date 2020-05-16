@@ -2,9 +2,13 @@ package com.example.mixit.ui.account;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.SearchView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -27,16 +31,15 @@ public class FavoritesFragment extends Fragment {
 
     private FavoritesViewModel favoritesViewModel;
     private int count = 0;
-    private ImageHelper imageHelper = new ImageHelper();
-    private TableLayout ll;
+    private ScrollView scrollView;
     private DatabaseHelper loginDB;
     private String username;
     private DBHelper recipeDB;
 
     public FavoritesFragment(DBHelper recipeDB, DatabaseHelper loginDB, String username) {
         this.recipeDB = recipeDB;
-        this.username = username;
         this.loginDB = loginDB;
+        this.username = username;
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -44,9 +47,7 @@ public class FavoritesFragment extends Fragment {
         favoritesViewModel =
                 ViewModelProviders.of(this).get(FavoritesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_search_results, container, false);
-
-
-        ll = (TableLayout)root.findViewById(R.id.searchResultsLayout);
+        scrollView = root.findViewById(R.id.searchResultsLayout);
         return root;
     }
 
@@ -59,14 +60,18 @@ public class FavoritesFragment extends Fragment {
         {
             recipeList.add(recipeDB.recipes_SelectById(id));
         }
-        ll.removeAllViews();
-        ll.addView(createSearchButtons(recipeList));
+        scrollView.removeAllViews();
+        scrollView.addView(createButtons(recipeList));
     }
 
-    public TableLayout createSearchButtons(final ArrayList<Recipe> recipeArray)
-    {
+    public TableLayout createButtons(final ArrayList<Recipe> recipes) {
+        TableLayout.LayoutParams tp = new TableLayout.LayoutParams();
         TableLayout table = new TableLayout(this.getActivity());
-        int totalButtons = recipeArray.size();
+
+        tp.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        tp.height = LinearLayout.LayoutParams.MATCH_PARENT;
+
+        int totalButtons = recipes.size();
         int totalRows = (totalButtons/2)+1;
         for (int row = 0; row < totalRows; row++) {
             TableRow currentRow = new TableRow(this.getActivity());
@@ -77,32 +82,28 @@ public class FavoritesFragment extends Fragment {
             }
             totalButtons -= 2;
             for (int button = 0; button < buttonsPerRow; button++) {
+                Recipe currentRecipe = recipes.get(count);
                 RecipeButton currentButton = new RecipeButton(this.getActivity());
                 TableRow.LayoutParams p = new TableRow.LayoutParams();
                 p.rightMargin = 20;
-                p.bottomMargin = 20;
+                p.bottomMargin = 10;
+                p.topMargin = 10;
                 currentButton.setLayoutParams(p);
-                System.out.print("Recipes: ");
-                for(Recipe r: recipeArray)
-                {
-                    System.out.print(r.getTitle()+", ");
-                }
-                System.out.println("");
-                currentButton.setRecipeListener(recipeArray.get(count), getParentFragmentManager());
-                currentButton.setHeight(480);
-                currentButton.setWidth(480);
-
-//                Bitmap bp = imageHelper.getBitmapFromByteArray(recipeArray.get(count).getThumbnail());
-//                Bitmap resized = Bitmap.createScaledBitmap(bp, 300, 300, true);
-//
-//                BitmapDrawable bdrawable = new BitmapDrawable(getContext().getResources(), resized);
-
-                currentButton.setText(recipeArray.get(count).getTitle());
-                currentButton.setTextColor(Color.WHITE);
+                currentButton.setRecipeListener(currentRecipe, getParentFragmentManager());
+                currentButton.setHeight(450);
+                DisplayMetrics displaymetrics = new DisplayMetrics();
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+                int width = displaymetrics.widthPixels;
+                int buttonWidth = (int)(width/2.2);
+                currentButton.setWidth(buttonWidth);
                 Picasso.get()
-                        .load(recipeArray.get(count).getResid())
-                        .resize(480,480)
+                        .load(currentRecipe.getResid())
+                        .resize(buttonWidth,450)
                         .into(currentButton);
+
+                currentButton.setText(currentRecipe.getTitle());
+                currentButton.setTextColor(Color.WHITE);
+                currentButton.setTextSize(20);
 
                 currentRow.addView(currentButton);
                 count++;
